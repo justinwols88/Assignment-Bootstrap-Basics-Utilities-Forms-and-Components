@@ -1,0 +1,752 @@
+ /* =================================== */
+        /* CSS VARIABLES (CUSTOM PROPERTIES) */
+        /* =================================== */
+        /* 
+       NOTE: AI was used to orginize and comment the explanation of each css selector and option used
+        */
+        :root {
+            /* Deep black backgrounds */
+            --deep-black: #080808;
+            
+            /* Slightly lighter black for containers */
+            --rich-black: #0f0f0f;
+            
+            /* Primary crimson color for accents */
+            --crimson: #8b0000;
+            
+            /* Darker red for gradients and hover states */
+            --blood-red: #6a0000;
+            
+            /* Bright red for highlights and glowing effects */
+            --electric-red: #ff073a;
+            
+            /* Light text color for contrast */
+            --light-ash: #e0e0e0;
+            
+            /* Dark gray for borders and backgrounds */
+            --dark-steel: #2a2a2a;
+        }
+        
+        /* =================================== */
+        /* GLOBAL STYLES */
+        /* =================================== */
+        
+        /* 
+        Apply styles to the entire body of the document 
+        Sets background color, font, and subtle background patterns
+        */
+        body {
+            /* Dark background color */
+            background-color: var(--deep-black);
+            
+            /* Text color */
+            color: var(--light-ash);
+            
+            /* Font family stack */
+            font-family: 'Exo 2', sans-serif;
+            
+            /* Subtle background patterns */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(139, 0, 0, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 85% 30%, rgba(139, 0, 0, 0.05) 0%, transparent 20%);
+            
+            /* Minimum height of the viewport */
+            min-height: 100vh;
+            
+            /* Position relative for pseudo-elements */
+            position: relative;
+            
+            /* Hide horizontal scrollbar */
+            overflow-x: hidden;
+        }
+        
+        /* 
+        Pseudo-element for creating a diagonal grid pattern 
+        This creates a subtle background texture
+        */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            /* Diagonal grid pattern */
+            background: 
+                linear-gradient(135deg, transparent 49.5%, rgba(255, 7, 58, 0.03) 50%, transparent 50.5%),
+                linear-gradient(45deg, transparent 49.5%, rgba(255, 7, 58, 0.03) 50%, transparent 50.5%);
+            
+            /* Grid cell size */
+            background-size: 30px 30px;
+            
+            /* Place behind other content */
+            z-index: -1;
+        }
+        
+        /* =================================== */
+        /* NAVIGATION BAR */
+        /* =================================== */
+        
+        /* 
+        Style the navigation bar 
+        This creates a dark sticky header at the top of the page
+        */
+        .navbar {
+            /* Semi-transparent dark background */
+            background-color: rgba(15, 15, 15, 0.95) !important;
+            
+            /* Bottom border with crimson accent */
+            border-bottom: 1px solid var(--crimson);
+            
+            /* Drop shadow for depth */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            
+            /* Special font for the navbar */
+            font-family: 'Orbitron', sans-serif;
+            
+            /* Vertical padding */
+            padding: 15px 0;
+        }
+        
+        /* 
+        Style the brand/logo element in the navbar 
+        */
+        .navbar-brand {
+            /* Bold font weight */
+            font-weight: 700;
+            
+            /* Letter spacing for style */
+            letter-spacing: 1px;
+            
+            /* Electric red color */
+            color: var(--electric-red) !important;
+            
+            /* Position relative for pseudo-element */
+            position: relative;
+        }
+        
+        /* 
+        Create an animated underline for the brand on hover 
+        */
+        .navbar-brand::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--electric-red);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+        
+        /* 
+        Animate the underline when hovering over the brand 
+        */
+        .navbar-brand:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        /* 
+        Style navigation links 
+        */
+        .nav-link {
+            /* Light text color */
+            color: var(--light-ash) !important;
+            
+            /* Position relative for pseudo-element */
+            position: relative;
+            
+            /* Horizontal spacing between links */
+            margin: 0 10px;
+            
+            /* Medium font weight */
+            font-weight: 500;
+        }
+        
+        /* 
+        Create an animated underline for navigation links 
+        */
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--electric-red);
+            transition: width 0.3s ease;
+        }
+        
+        /* 
+        Expand the underline on hover 
+        */
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* =================================== */
+        /* HERO SECTION */
+        /* =================================== */
+        
+        /* 
+        Style the hero section at the top of the page 
+        */
+        .hero-section {
+            /* Relative positioning for pseudo-element */
+            position: relative;
+            
+            /* Vertical padding */
+            padding: 120px 0 80px;
+            
+            /* Center align content */
+            text-align: center;
+            
+            /* Hide overflow */
+            overflow: hidden;
+        }
+        
+        /* 
+        Create a radial gradient overlay for the hero section 
+        */
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            /* Radial gradient overlay */
+            background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.2) 0%, rgba(8, 8, 8, 0) 70%);
+            
+            /* Place behind content */
+            z-index: -1;
+        }
+        
+        /* 
+        Style the main hero title 
+        */
+        .hero-title {
+            /* Special font for impact */
+            font-family: 'Orbitron', sans-serif;
+            
+            /* Bold font weight */
+            font-weight: 700;
+            
+            /* Large font size */
+            font-size: 4rem;
+            
+            /* Uppercase text */
+            text-transform: uppercase;
+            
+            /* Increased letter spacing */
+            letter-spacing: 3px;
+            
+            /* Bottom margin */
+            margin-bottom: 20px;
+            
+            /* Text shadow for glow effect */
+            text-shadow: 0 0 15px rgba(255, 7, 58, 0.5);
+            
+            /* Gradient text effect */
+            background: linear-gradient(to right, #ff073a, #8b0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* 
+        Style the hero subtitle 
+        */
+        .hero-subtitle {
+            /* Medium font size */
+            font-size: 1.5rem;
+            
+            /* Maximum width for readability */
+            max-width: 700px;
+            
+            /* Center with automatic margins */
+            margin: 0 auto 40px;
+            
+            /* Light gray text color */
+            color: #aaa;
+        }
+        
+        /* =================================== */
+        /* SECTION STYLES */
+        /* =================================== */
+        
+        /* 
+        Style for content sections 
+        */
+        .section {
+            /* Vertical padding */
+            padding: 80px 0;
+            
+            /* Relative positioning */
+            position: relative;
+        }
+        
+        /* 
+        Style for section titles 
+        */
+        .section-title {
+            /* Special font for headings */
+            font-family: 'Orbitron', sans-serif;
+            
+            /* Uppercase text */
+            text-transform: uppercase;
+            
+            /* Letter spacing for style */
+            letter-spacing: 2px;
+            
+            /* Bottom margin */
+            margin-bottom: 40px;
+            
+            /* Relative positioning for pseudo-element */
+            position: relative;
+            
+            /* Display as inline-block */
+            display: inline-block;
+            
+            /* Padding at bottom for underline */
+            padding-bottom: 15px;
+        }
+        
+        /* 
+        Create an underline for section titles 
+        */
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--electric-red);
+        }
+        
+        /* =================================== */
+        /* FORM STYLES */
+        /* =================================== */
+        
+        /* 
+        Container for the registration form 
+        */
+        .form-container {
+            /* Semi-transparent dark background */
+            background-color: rgba(15, 15, 15, 0.8);
+            
+            /* Rounded corners */
+            border-radius: 10px;
+            
+            /* Internal spacing */
+            padding: 40px;
+            
+            /* Border with crimson tint */
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            
+            /* Shadow for depth */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            
+            /* Blur effect for frosted glass look */
+            backdrop-filter: blur(5px);
+        }
+        
+        /* 
+        Style form input controls 
+        */
+        .form-control {
+            /* Semi-transparent dark background */
+            background-color: rgba(42, 42, 42, 0.5);
+            
+            /* Dark border */
+            border: 1px solid #333;
+            
+            /* Light text color */
+            color: var(--light-ash);
+            
+            /* Transition for focus effects */
+            transition: all 0.3s;
+        }
+        
+        /* 
+        Style form controls when focused 
+        */
+        .form-control:focus {
+            /* Darker background on focus */
+            background-color: rgba(42, 42, 42, 0.8);
+            
+            /* Electric red border on focus */
+            border-color: var(--electric-red);
+            
+            /* Glowing focus effect */
+            box-shadow: 0 0 0 0.25rem rgba(255, 7, 58, 0.25);
+            
+            /* White text for better contrast */
+            color: white;
+        }
+        
+        /* =================================== */
+        /* BUTTON STYLES */
+        /* =================================== */
+        
+        /* 
+        Custom crimson button style 
+        */
+        .btn-crimson {
+            /* Gradient background */
+            background: linear-gradient(45deg, var(--crimson), var(--blood-red));
+            
+            /* No border */
+            border: none;
+            
+            /* White text */
+            color: white;
+            
+            /* Semi-bold font */
+            font-weight: 600;
+            
+            /* Padding for size */
+            padding: 12px 30px;
+            
+            /* Rounded corners */
+            border-radius: 30px;
+            
+            /* Transition for hover effects */
+            transition: all 0.4s;
+            
+            /* Position for pseudo-element */
+            position: relative;
+            
+            /* Hide overflow */
+            overflow: hidden;
+            
+            /* Shadow for depth */
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+        }
+        
+        /* 
+        Create sliding highlight effect for button 
+        */
+        .btn-crimson::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20px;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(25deg);
+            transition: all 0.6s;
+        }
+        
+        /* 
+        Button hover effects 
+        */
+        .btn-crimson:hover {
+            /* Lift button on hover */
+            transform: translateY(-3px);
+            
+            /* Enhance shadow on hover */
+            box-shadow: 0 8px 20px rgba(139, 0, 0, 0.6);
+        }
+        
+        /* 
+        Move highlight effect on hover 
+        */
+        .btn-crimson:hover::after {
+            left: 120%;
+        }
+        
+        /* =================================== */
+        /* TABLE STYLES */
+        /* =================================== */
+        
+        /* 
+        Container for the data table 
+        */
+        .table-container {
+            /* Semi-transparent dark background */
+            background-color: rgba(15, 15, 15, 0.8);
+            
+            /* Rounded corners */
+            border-radius: 10px;
+            
+            /* Internal spacing */
+            padding: 30px;
+            
+            /* Border with crimson tint */
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            
+            /* Shadow for depth */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            
+            /* Blur effect for frosted glass look */
+            backdrop-filter: blur(5px);
+        }
+        
+        /* 
+        Dark table style overrides 
+        */
+        .table-dark {
+            /* Transparent background */
+            --bs-table-bg: transparent;
+            
+            /* Striped row background */
+            --bs-table-striped-bg: rgba(42, 42, 42, 0.3);
+            
+            /* Row hover background */
+            --bs-table-hover-bg: rgba(139, 0, 0, 0.2);
+            
+            /* Border color */
+            border-color: #333;
+        }
+        
+        /* 
+        Style table headers 
+        */
+        .table th {
+            /* Gradient background for headers */
+            background: linear-gradient(to bottom, var(--crimson), var(--blood-red));
+            
+            /* White text */
+            color: white;
+            
+            /* Semi-bold font */
+            font-weight: 600;
+            
+            /* Letter spacing for style */
+            letter-spacing: 1px;
+        }
+        
+        /* =================================== */
+        /* IMAGE SECTION STYLES */
+        /* =================================== */
+        
+        /* 
+        Container for image section 
+        */
+        .image-section {
+            /* Position relative */
+            position: relative;
+            
+            /* Vertical padding */
+            padding: 60px 0;
+        }
+        
+        /* 
+        Style for the main image 
+        */
+        .main-image {
+            /* Rounded corners */
+            border-radius: 10px;
+            
+            /* Bottom margin */
+            margin-bottom: 40px;
+            
+            /* Shadow for depth */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            
+            /* Border with crimson tint */
+            border: 2px solid rgba(139, 0, 0, 0.5);
+            
+            /* Transition for hover effects */
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+        
+        /* 
+        Hover effects for main image 
+        */
+        .main-image:hover {
+            /* Slight scale up on hover */
+            transform: scale(1.02);
+            
+            /* Enhanced shadow on hover */
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.4);
+        }
+        
+        /* 
+        Style for circular image 
+        */
+        .circular-image {
+            /* Fixed dimensions */
+            width: 220px;
+            height: 220px;
+            
+            /* Center alignment */
+            margin: 30px auto;
+            
+            /* Crimson border */
+            border: 3px solid var(--crimson);
+            
+            /* Shadow for depth */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            
+            /* Transition for hover effects */
+            transition: all 0.4s;
+        }
+        
+        /* 
+        Hover effects for circular image 
+        */
+        .circular-image:hover {
+            /* Slight scale up */
+            transform: scale(1.05);
+            
+            /* Enhanced shadow */
+            box-shadow: 0 15px 30px rgba(139, 0, 0, 0.5);
+            
+            /* Change to electric red border */
+            border-color: var(--electric-red);
+        }
+        
+        /* =================================== */
+        /* FEATURE CARD STYLES */
+        /* =================================== */
+        
+        /* 
+        Style for feature cards 
+        */
+        .feature-card {
+            /* Semi-transparent dark background */
+            background: rgba(15, 15, 15, 0.7);
+            
+            /* Border with crimson tint */
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            
+            /* Rounded corners */
+            border-radius: 10px;
+            
+            /* Internal spacing */
+            padding: 30px;
+            
+            /* Full height of container */
+            height: 100%;
+            
+            /* Transition for hover effects */
+            transition: all 0.4s;
+            
+            /* Shadow for depth */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            
+            /* Position for pseudo-element */
+            position: relative;
+            
+            /* Hide overflow */
+            overflow: hidden;
+        }
+        
+        /* 
+        Create left border animation on hover 
+        */
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: var(--electric-red);
+            transition: height 0.4s ease;
+        }
+        
+        /* 
+        Hover effects for feature cards 
+        */
+        .feature-card:hover {
+            /* Lift card on hover */
+            transform: translateY(-10px);
+            
+            /* Enhanced shadow */
+            box-shadow: 0 15px 30px rgba(139, 0, 0, 0.4);
+            
+            /* Brighter border */
+            border-color: rgba(139, 0, 0, 0.6);
+        }
+        
+        /* 
+        Expand left border on hover 
+        */
+        .feature-card:hover::before {
+            height: 100%;
+        }
+        
+        /* 
+        Style for feature icons 
+        */
+        .feature-icon {
+            /* Large icon size */
+            font-size: 3.5rem;
+            
+            /* Electric red color */
+            color: var(--electric-red);
+            
+            /* Bottom margin */
+            margin-bottom: 20px;
+            
+            /* Subtle glow effect */
+            text-shadow: 0 0 10px rgba(255, 7, 58, 0.3);
+        }
+        
+        /* =================================== */
+        /* FOOTER STYLES */
+        /* =================================== */
+        
+        /* 
+        Style the footer 
+        */
+        footer {
+            /* Dark background */
+            background-color: rgba(10, 10, 10, 0.95);
+            
+            /* Top border */
+            border-top: 1px solid var(--crimson);
+            
+            /* Vertical padding */
+            padding: 60px 0 30px;
+            
+            /* Position for pseudo-element */
+            position: relative;
+        }
+        
+        /* 
+        Create a glowing top border for the footer 
+        */
+        footer::before {
+            content: "";
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            
+            /* Gradient border */
+            background: linear-gradient(90deg, var(--blood-red), var(--electric-red), var(--blood-red));
+            
+            /* Glow effect */
+            box-shadow: 0 0 15px rgba(255, 7, 58, 0.5);
+        }
+        
+        /* =================================== */
+        /* RESPONSIVE DESIGN */
+        /* =================================== */
+        
+        /* 
+        Media query for screens smaller than 768px 
+        Adjust layout for mobile devices
+        */
+        @media (max-width: 768px) {
+            /* Reduce hero title size */
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            /* Reduce hero subtitle size */
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
