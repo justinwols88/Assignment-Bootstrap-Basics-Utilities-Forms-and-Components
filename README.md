@@ -1,10 +1,11 @@
-Knowledge Check | Bootstrap Basics, Utilities, Forms, and Components
-OVERVIEW: This assignment will assess your understanding of Bootstrap concepts covered in Module 5. You’ll apply Bootstrap utilities, forms, tables, images, and components to create a fully functional, responsive web page.
+# Knowledge Check | Bootstrap Basics, Utilities, Forms, and Components OVERVIEW: This assignment will assess your understanding of Bootstrap concepts covered in Module 5. You’ll apply Bootstrap utilities, forms, tables, images, and components to create a fully functional, responsive web page
+
+NOTE: AI was used to orginize and comment on the on the function of each css.
 
 INSTRUCTIONS: In VS Code, complete the following tasks in your .html and .css files.
 
 Create a New Webpage Using Bootstrap:
-Set up a basic HTML file with the Bootstrap CDN linked in the <head> section.
+Set up a basic HTML file and include the Bootstrap CDN in the document header.
 Use a container or container-fluid to structure your layout.
 
 Part 1: Form Creation and Layout
@@ -20,7 +21,6 @@ Below the form, create a table using Bootstrap’s table component.
 Hard-code user data into the table to simulate submissions.
 Add striped and hoverable rows for better readability.
 Make the table responsive by wrapping it in a table-responsive div.
-
 
 Part 3: Image and Button Utilities
 Add an Image Section:
@@ -101,5 +101,3 @@ Navbar collapses correctly and is styled with Bootstrap.
 Responsiveness & Layout
 1 pt
 Page adjusts correctly across different screen sizes.
-
-
