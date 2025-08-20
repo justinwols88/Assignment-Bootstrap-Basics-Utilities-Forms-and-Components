@@ -208,6 +208,24 @@ body {
     padding: 80px 0;                 /* Vertical padding */
     background: var(--pure-black);   /* Pure black background */
     border-bottom: 1px solid var(--dark-border); /* Bottom border */
+
+    .device-box::after {
+  content: "Default";
+  display: block;
+  font-size: 2em;
+  text-align: center;
+  padding: 60px;
+  background-color: lightgray;
+  border: 3px solid black;
+}
+
+    .device-box {
+        display: flex;               /* Flex layout */
+        flex-direction: column;      /* Column direction */
+        align-items: center;         /* Center align items */
+        justify-content: center;     /* Center content */
+        height: 100%;                /* Full height */
+    }
 }
 
 /* Section title styling */
@@ -533,13 +551,13 @@ footer h4 {
 /* Mobile Device-Specific adjustments */
     @media (max-width: 599px) {
     .hero-title {
-        font-size: 2.5rem;           /* Smaller title */
+        font-size: 2rem;             /* Smaller title */
     }
-    
+
     .section-title {
-        font-size: 2rem;             /* Smaller section title */
+        font-size: 1.5rem;           /* Smaller section title */
     }
-    
+
     .main-image {
         max-width: 100%;             /* Full width */
         height: auto;                /* Maintain aspect ratio */
