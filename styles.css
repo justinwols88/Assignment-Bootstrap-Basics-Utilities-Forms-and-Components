@@ -416,6 +416,18 @@ footer h4 {
     border: 1px solid var(--dark-border); /* Border */
 }
 
+.device-box::after {
+    content: "Default";
+    display: block;
+    font-size: 2em;
+    text-align: center;
+    padding: 60px;
+    background-color: lightgray;
+    border: 3px solid black;
+    font-weight: bold;
+    transition: all 0.5s ease;
+}
+
 /* Hover effect for social icons */
 .social-icon:hover {
     transform: translateY(-5px);     /* Lift effect */
@@ -518,8 +530,8 @@ footer h4 {
 }
 
 /* ===== RESPONSIVE ADJUSTMENTS ===== */
-/* Mobile-specific adjustments */
-@media (max-width: 768px) {
+/* Mobile Device-Specific adjustments */
+    @media (max-width: 599px) {
     .hero-title {
         font-size: 2.5rem;           /* Smaller title */
     }
@@ -529,8 +541,50 @@ footer h4 {
     }
     
     .main-image {
-        margin-bottom: 20px;         /* Less space below image */
+        max-width: 100%;             /* Full width */
+        height: auto;                /* Maintain aspect ratio */
     }
+    .device-box::after {
+                content: "Mobile Device";
+                background-color: lightblue;
+                font-size: 1.5em;
+                animation: fadeIn 0.8s ease-out;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+}
+
+/* Tablet Device-Specific adjustments */
+@media (min-width: 600px) and (max-width: 899px) {
+    .hero-title {
+        font-size: 2.5rem;             /* Smaller title */
+    }
+    .section-title {
+        font-size: 2rem;               /* Smaller section title */
+    }
+    .main-image {
+        margin-bottom: 20px;           /* Less space below image */
+    }
+    .sidebar {
+        width: 200px;                  /* Narrower sidebar */
+    }
+    .main-content {
+        margin-left: 220px;            /* Adjusted margin for content */
+    }
+    .sidebar-toggle {
+        width: 35px;                   /* Smaller toggle button */
+        height: 35px;                  /* Smaller toggle button */
+    }
+    .device-box::after {
+                content: "Tablet Device";
+                background-color: lightgreen;
+                border: 3px dotted darkgreen;
+                animation: fadeIn 0.8s ease-out;
+            }
 }
 
 /* Mobile sidebar overlay */
@@ -545,12 +599,71 @@ footer h4 {
     display: none;                   /* Hidden by default */
 }
 
+/* desktop Device-Specific adjustments */
+@media (min-width: 900px) and (max-width: 1199px)  {
+    .sidebar-overlay {
+        display: none;               /* Hide overlay on desktop */
+    }
+    .device-box {
+        max-width: 600px;            /* Max width for device box */
+    }
+
+    .device-box::after {
+        content: "Desktop Device";   /* Content for desktop device */
+        background-color: lightcoral; /* Background color for desktop device */
+        padding: 80px;                /* Padding for desktop device */
+        animation: fadeIn 0.8s ease-out; /* Animation for desktop device */
+    }
+}
+
+/* Large desktop Device-Specific adjustments */
+@media (min-width: 1200px) {
+    .device-box {
+        max-width: 700px;            /* Max width for device box */
+    }
+
+    .device-box::after {             /* Pseudo-element for device box */
+        content: "Ultra-Wide Device";
+        background-color: #ffcc80;  /* Background color for ultra-wide device */
+        padding: 100px;               /* Padding for ultra-wide device */
+        font-size: 2.2em;             /* Font size for ultra-wide device */
+        animation: fadeIn 0.8s ease-out;  /* Animation for ultra-wide device */
+    }
+}
+
 /* Show overlay when sidebar is open on mobile */
 @media (max-width: 992px) {
     .sidebar-overlay.open {
         display: block;              /* Show overlay */
     }
 }
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;                 /* Start fully transparent */
+        transform: translateY(20px); /* Start 20px lower */
+    }
+    to {
+        opacity: 1;                  /* End fully opaque */
+        transform: translateY(0);    /* End in original position */
+    }
+}
+/* ===== SIZE INDICATOR ===== */
+.size-indicator {
+    margin-top: 30px;                /* Space above the indicator */
+    background-color: rgba(255, 255, 255, 0.9); /* Background color */
+    padding: 15px;                   /* Padding */
+    border-radius: 10px;             /* Rounded corners */
+    font-weight: bold;               /* Bold text */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+footer {
+            margin-top: 40px;
+            color: white;
+            font-size: 0.9rem;
+        }
 
 /* ===== ADDITIONAL DARKENING ===== */
 /* Muted text styling */
