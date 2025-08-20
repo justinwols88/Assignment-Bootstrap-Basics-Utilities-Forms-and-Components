@@ -573,8 +573,6 @@ footer h4 {
                 font-size: 2rem;
             }
         }
-        
-}
 
 /* Tablet Device-Specific adjustments */
 @media (min-width: 600px) and (max-width: 899px) {
@@ -677,11 +675,6 @@ footer h4 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-footer {
-            margin-top: 40px;
-            color: white;
-            font-size: 0.9rem;
-        }
 
 /* ===== ADDITIONAL DARKENING ===== */
 /* Muted text styling */
