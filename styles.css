@@ -644,6 +644,9 @@ footer h4 {
         padding: 100px;               /* Padding for ultra-wide device */
         font-size: 2.2em;             /* Font size for ultra-wide device */
         animation: fadeIn 0.8s ease-out;  /* Animation for ultra-wide device */
+        display: flex;                /* Flexbox for alignment */
+        justify-content: center;      /* Center content horizontally */
+        align-items: center;          /* Center content vertically */
     }
 }
 
@@ -675,6 +678,12 @@ footer h4 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
+/* Device box-Specific adjustments */
+.device-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* ===== ADDITIONAL DARKENING ===== */
 /* Muted text styling */
